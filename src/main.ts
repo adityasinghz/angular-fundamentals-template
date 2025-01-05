@@ -1,12 +1,26 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import { METADATA_AUTHORIZED_KEY } from '@core/core-module.config';
 
-if (environment.production) {
-  enableProdMode();
+import * as packageJson from '../package.json';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  const config = new DocumentBuilder()
+    .setTitle(packageJson.name)
+    .setVersion(packageJson.version)
+    .addBearerAuth(
+      { type: 'http', scheme: 'bearer', bearerFormat: 'JWT', in: 'headers' },
+      METADATA_AUTHORIZED_KEY,
+    )
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+
+  app.enableCors();
+  SwaggerModule.setup('api', app, document);
+
+  await app.listen(4000);
 }
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrap();
