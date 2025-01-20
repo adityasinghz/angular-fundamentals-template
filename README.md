@@ -1,61 +1,27 @@
-# courses-app-backend
+# Angularfundamentalstemplate
 
-This project was created for educational purposes and is used as a back-end for educational applications.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
-## Running the app
+## Development server
 
-```bash
-# development
-$ npm run start
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-# watch mode
-$ npm run start:dev
+## Code scaffolding
 
-# production mode
-$ npm run start:prod
-```
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Test
+## Build
 
-```bash
-# unit tests
-$ npm run test
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-# e2e tests
-$ npm run test:e2e
+## Running unit tests
 
-# test coverage
-$ npm run test:cov
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-# Swagger
+## Running end-to-end tests
 
-## Run Swagger UI
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-1) Pull the backend project and install dependencies
-```bash
-$ npm install
-```
+## Further help
 
-2) Execute the following command into the terminal
-
-```bash
-$ npm run start
-```
-
-3) Go to http://localhost:4000/api in your browser to see Swagger UI
-
-## Authorization
-
-1) Choose any user from the *bd -> users.json* file and pass this user data into *Auth -> /login* method into the swagger. And then execute it
-
-![Login](assets/img/login.png?raw=true "Login")
-
-2) Copy result token from the response (token after *Barier*)
-
-![Token](assets/img/token.png?raw=true "Token")
-
-3) Click on the *Authorize* button at the top of the page. Paste the token from the previous step to the *value* input and click the *Authorize* button
-
-![Auth](assets/img/auth.png?raw=true "Auth")
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
